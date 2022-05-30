@@ -6,14 +6,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>Sarker majid in react js first paragraph</p> */}
         <Sarkermajid></Sarkermajid>
-        <Sarkermajid></Sarkermajid>
-        <Sarkermajid></Sarkermajid>
+        <Person name='Sarker Majid' profession='Software Engineer' address='77 Maniknagar, Dhaka-1203' education='CSE' gender='Male'></Person>
+        <Person name='Sohan Khan' profession='Web Designer' address='Basabo' education='CSE' gender='Male'></Person>
+        <Person name='Rumjhum' profession='Veppi' address='Mirpur' education='CSE' gender='Female'></Person>
       </header>
     </div>
   );
@@ -32,22 +28,36 @@ function Sarkermajid(){
     borderRadius : '30px',
     margin : '10px',
     padding : '20px',
-    backgroundColor : '#2ecc71'
-  }
+    backgroundColor : '#2ecc71',
+    color : 'red',
+    fontSize : '20px'
+  };
   return (
     <div style={sarkerStyle}>
       <h2>Hey, I'm Sarker Majid</h2>
       <h4>Profession : {profession}</h4>
       <h3>Education : {education}</h3>
-      <div>
+      <div style={sarkerStyle}>
         <h3>My skills :</h3>
-        <p>{skills.HTML}</p>
-        <p>{skills.CSS}</p>
-        <p>{skills.JavaScript}</p>
-        <p>{skills.React_Js}</p>
+        <h6>{skills.HTML}</h6>
+        <h6>{skills.CSS}</h6>
+        <h6>{skills.JavaScript}</h6>
+        <h6>{skills.React_Js}</h6>
       </div>
     </div>
   );
+}
+
+function Person(props){
+  return(
+    <div style={{ border : '3px solid red', backgroundColor : 'black', color : 'yellow', width : '500px', margin : '10px', padding : '20px', borderRadius : '20px', fontSize : '16px'}}>
+      <h3>Name : {props.name}</h3>
+      <p>Profession : {props.profession}</p>
+      <p>Address : {props.address}</p>
+      <p>Education : {props.education}</p>
+      <p>Gender : {props.gender}</p>
+    </div>
+  )
 }
 
 export default App;
