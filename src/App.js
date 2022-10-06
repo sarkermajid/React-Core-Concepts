@@ -17,15 +17,15 @@ function App() {
             Username : {person.username} <br />
             Job : {person.job}
         </h1>
-        <Person></Person>
-        <Person></Person>
-        <Person></Person>
+        <Person name='Sarker Majid' profession='Laravel Developer'></Person>
+        <Person name='Sohan Khan' profession='Frontend Developer'></Person>
+        <Person name='Tanvir Ahmed' profession='Data Scientist'></Person>
       </header>
     </div>
   );
 }
 
-function Person(){
+function Person(props){
   const personStyle = {
     border: '2px solid red',
     backgroundColor: 'black',
@@ -35,8 +35,8 @@ function Person(){
   } 
   return (
     <div style={personStyle}>
-      <h3>Sarker majid</h3>
-      <h5>Laravel Developer</h5>
+      <h3>Name: {props.name}</h3>
+      <h5>Professtion: {props.profession}</h5>
     </div>
   )
 }
