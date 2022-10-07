@@ -89,7 +89,7 @@ function Counter(){
 
   const counterStyle={
     height:'300px',
-    width:'220px',
+    width:'500px',
     backgroundColor:'red',
     color:'black',
     margin:'10px',
@@ -100,7 +100,7 @@ function Counter(){
 
   const buttonStyle = {
     backgroundColor:'black',
-    color:'red',
+    color:'yellow',
     borderRadius:'10px',
     padding:'10px'
   }
@@ -110,9 +110,9 @@ function Counter(){
   return(
     <div style={counterStyle}>
       <h1>Counter: {count}</h1>
-      <button style={buttonStyle} onClick={()=> setCount(count+1)}>Increment</button>
+      <button style={buttonStyle} onClick={()=> setCount(count+1)}>Increment ++</button>
       <br />
-      <button style={buttonStyle} onClick={()=> setCount(count-1)}>Decrement</button>
+      <button style={buttonStyle} onClick={()=> setCount(count-1)}>Decrement --</button>
     </div>
   )
 }
