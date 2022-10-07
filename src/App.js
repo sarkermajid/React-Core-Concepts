@@ -8,15 +8,16 @@ function App() {
   var style = {
     color: 'yellow',
     backgroundColor: 'black',
-    padding: '20px'
+    padding: '20px',
+    border:'2px solid orange',
+    borderRadius:'20px'
   }
 
-  const Items = [
-    {name: 'Photoshop', price:'$90.99'},
-    {name: 'Illastrator', price:'$60.99'},
-    {name: 'Primer Pro', price:'$70.99'}
+  const product_items = [
+    {name:'photoshop', price:'$99.99'},
+    {name:'Illustrator', price:'$70.99'},
+    {name:'Phpstorm', price:'$129.99'}
   ]
-
   return (
     <div className="App">
       <header className="App-header">
@@ -25,9 +26,9 @@ function App() {
             Job : {person.job}
         </h1>
         <Person name='Sarker Majid' profession='Laravel Developer'></Person>
-        <Product name={Items[0].name} price={Items[0].price}></Product>
-        <Product name={Items[1].name} price={Items[1].price}></Product>
-        <Product name={Items[2].name} price={Items[2].price}></Product>
+        <Product name={product_items[0].name} price={product_items[0].price}></Product>
+        <Product name={product_items[1].name} price={product_items[1].price}></Product>
+        <Product name={product_items[2].name} price={product_items[2].price}></Product>
       </header>
     </div>
   );
@@ -39,7 +40,8 @@ function Person(props){
     backgroundColor: 'black',
     color: 'yellow',
     margin: '10px',
-    padding: '20px'
+    padding: '20px',
+    borderRadius:'10px'
   } 
   return (
     <div style={personStyle}>
@@ -50,22 +52,24 @@ function Person(props){
 }
 
 function Product(props){
+
   const productStyle = {
-    color: 'yellow',
     backgroundColor:'black',
-    borderRadius: '20px',
-    border:'1px solid green',
-    margin:'10px',
-    padding:'10px',
     height:'250px',
-    width:'200px'
+    width:'200px',
+    color:'yellow',
+    borderRadius:'10px',
+    border:'2px solid green',
+    margin:'10px',
+    padding:'10px'
   }
+
   return(
-  <div style={productStyle}>
-    <h4>{props.name}</h4>
-    <h5>{props.price}</h5>
-    <button>Buy now</button>
-  </div>
+    <div style={productStyle}>
+      <h4>{props.name}</h4>
+      <h5>{props.price}</h5>
+      <button>buy now</button>
+    </div>
   )
 }
 
