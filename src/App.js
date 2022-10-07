@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 
 function App() {
   var person = {
@@ -21,10 +22,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 style={style}>Md. Majidur Rahman Sarker <br />
+        <h2 style={style}>Md. Majidur Rahman Sarker <br />
             Username : {person.username} <br />
             Job : {person.job}
-        </h1>
+        </h2>
         <ul>
           Product Name:
           {
@@ -39,6 +40,7 @@ function App() {
         <Product name={product_items[0].name} price={product_items[0].price}></Product>
         <Product name={product_items[1].name} price={product_items[1].price}></Product>
         <Product name={product_items[2].name} price={product_items[2].price}></Product>
+        <Counter></Counter>
       </header>
     </div>
   );
@@ -79,6 +81,38 @@ function Product(props){
       <h4>{props.name}</h4>
       <h5>{props.price}</h5>
       <button>buy now</button>
+    </div>
+  )
+}
+
+function Counter(){
+
+  const counterStyle={
+    height:'300px',
+    width:'220px',
+    backgroundColor:'red',
+    color:'black',
+    margin:'10px',
+    padding:'10px',
+    borderRadius:'10px',
+    border:'2px solid black'
+  }
+
+  const buttonStyle = {
+    backgroundColor:'black',
+    color:'red',
+    borderRadius:'10px',
+    padding:'10px'
+  }
+
+  const [count, setCount] = useState(0);
+
+  return(
+    <div style={counterStyle}>
+      <h1>Counter: {count}</h1>
+      <button style={buttonStyle} onClick={()=> setCount(count+1)}>Increment</button>
+      <br />
+      <button style={buttonStyle} onClick={()=> setCount(count-1)}>Decrement</button>
     </div>
   )
 }
