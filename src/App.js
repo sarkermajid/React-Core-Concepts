@@ -16,7 +16,7 @@ function App() {
   const product_items = [
     {name:'photoshop', price:'$99.99'},
     {name:'Illustrator', price:'$70.99'},
-    {name:'Phpstorm', price:'$129.99'}
+    {name:'Phpstorm', price:'$129.99'},
   ]
   return (
     <div className="App">
@@ -25,6 +25,16 @@ function App() {
             Username : {person.username} <br />
             Job : {person.job}
         </h1>
+        <ul>
+          Product Name:
+          {
+            product_items.map(product_items => <li>{product_items.name}</li>)
+          }
+        </ul>
+        <ul>
+           Product Price:
+           {product_items.map(product_items => <li>{product_items.price}</li>)}
+        </ul>
         <Person name='Sarker Majid' profession='Laravel Developer'></Person>
         <Product name={product_items[0].name} price={product_items[0].price}></Product>
         <Product name={product_items[1].name} price={product_items[1].price}></Product>
