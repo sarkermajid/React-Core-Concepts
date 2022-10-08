@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
   var person = {
@@ -41,6 +41,8 @@ function App() {
         <Product name={product_items[1].name} price={product_items[1].price}></Product>
         <Product name={product_items[2].name} price={product_items[2].price}></Product>
         <Counter></Counter>
+        <Users></Users>
+        <Email></Email>
       </header>
     </div>
   );
@@ -113,6 +115,42 @@ function Counter(){
       <button style={buttonStyle} onClick={()=> setCount(count+1)}>Increment ++</button>
       <br />
       <button style={buttonStyle} onClick={()=> setCount(count-1)}>Decrement --</button>
+    </div>
+  )
+}
+
+function Users(){
+  const [users, setUsers] = useState([]);
+  useEffect(()=>{
+    fetch('https://jsonplaceholder.typicode.com/users/')
+    .then(res => res.json())
+    .then(data => setUsers(data))
+  },[]);
+  return(
+    <div>
+      <h1>Total Users : {users.length}</h1>
+      <ul>
+        {
+          users.map(user => <li>{user.name}</li>)
+        }
+      </ul>
+    </div>
+  )
+}
+
+function Email(){
+  const [email, setEmail] = useState([]);
+  useEffect(()=>{
+    fetch('https://jsonplaceholder.typicode.com/users/')
+    .then(res => res.json())
+    .then(data => setEmail(data))
+  },[])
+  return(
+    <div>
+      <h1>Total Email : {email.length}</h1>
+      <ul>
+        {email.map(email => <li>{email.email}</li>)}
+      </ul>
     </div>
   )
 }
